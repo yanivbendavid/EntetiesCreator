@@ -48,6 +48,10 @@ export default function Creator(props) {
     dispatch({ type: "XPOS", value: x.length > 0 });
     dispatch({ type: "YPOS", value: y.length > 0 });
 
+    if (!state.nameIsValid || !state.xIsValid || !state.yIsValid) {
+      return;
+    }
+
     const entity = { name, x, y };
     const id = await addEntity(entity);
 
